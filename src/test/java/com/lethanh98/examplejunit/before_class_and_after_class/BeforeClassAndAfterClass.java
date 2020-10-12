@@ -1,31 +1,31 @@
-package com.lethanh98.examplejunit.before_After;
+package com.lethanh98.examplejunit.before_class_and_after_class;
 
 import com.lethanh98.examplejunit.cal.CalNhan;
 import com.lethanh98.examplejunit.cal.impl.CalNhanImpl;
-import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * Before và After sử dụng để mỗi một test được chạy thì các method Before và After sẽ được chạy 1 lần,
- * thường được sử dụng trong quá trình setup data
+ * Sử dụng để khởi tạo các config chung cho nhiều test. Các config này sẽ ở dạng global.
+ * Các method sẽ là static. Fw sẽ tự động call khi bắt đầu start và trước khi stop test
  */
-public class BeforeAfterTest {
-    int one;
-    int two;
-    int result;
+public class BeforeClassAndAfterClass {
+    static int one;
+    static int two;
+    static int result;
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         System.out.println("Start Before");
         one = 2;
         two = 2;
         result = 4;
     }
 
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
         System.out.println("Start After");
     }
 

@@ -17,9 +17,9 @@ public class TimeoutTest {
 
     }
 
-    @Test(timeout = 100)
+    @Test(timeout = 1000)
     public void nhanTestTimeOut() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(10);
         System.out.println("nhanTest Ignore ");
         CalNhan calNhan = new CalNhanImpl();
         Assert.assertEquals(100, calNhan.nhan(10, 10), 0);
